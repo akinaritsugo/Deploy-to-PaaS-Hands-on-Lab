@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       resourceGroup:
-        description: "リソース グループ名"
+        description: 'リソース グループ名'
         required: true
         type: string
 
