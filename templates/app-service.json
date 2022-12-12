@@ -6,14 +6,14 @@
       "appName":
         {
           "type": "string",
-          "metadata": { "description": "アプリケーションの名前" },
-        },
+          "metadata": { "description": "アプリケーションの名前" }
+        }
     },
   "functions": [],
   "variables":
     {
       "appServicePlan": "[concat('asp-', parameters('appName'))]",
-      "appService": "[concat('app-', parameters('appName'))]",
+      "appService": "[concat('app-', parameters('appName'))]"
     },
   "resources":
     [
@@ -24,7 +24,7 @@
         "location": "[resourceGroup().location]",
         "kind": "linux",
         "sku": { "name": "S1", "tier": "Standard" },
-        "properties": { "reserved": true },
+        "properties": { "reserved": true }
       },
       {
         "type": "Microsoft.Web/sites",
@@ -33,16 +33,16 @@
         "location": "[resourceGroup().location]",
         "dependsOn":
           [
-            "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlan'))]",
+            "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlan'))]"
           ],
         "kind": "app,linux",
         "properties":
           {
             "siteConfig": { "linuxFxVersion": "JAVA|17-java17" },
             "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlan'))]",
-            "httpsOnly": true,
-          },
-      },
+            "httpsOnly": true
+          }
+      }
     ],
-  "outputs": {},
+  "outputs": {}
 }
