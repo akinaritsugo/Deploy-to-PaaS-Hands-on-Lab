@@ -58,7 +58,28 @@
 					</excludes>
 				</configuration>
 			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-webapp-maven-plugin</artifactId>
+                <version>2.7.0</version>
+                <configuration>
+                <subscriptionId>451ddb2e-24dd-4190-a331-11596b02acb6</subscriptionId>
+                <resourceGroup>at-cw202212-dryrun-rg</resourceGroup>
+                <appName>at-cw202212-dryrun-appsvc</appName>
+                <deployment>
+                <resources>
+                    <resource>
+                    <type>jar</type>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                    <include>*.jar</include>
+                    </includes>
+                    </resource>
+                </resources>
+                </deployment>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 
 </project>
